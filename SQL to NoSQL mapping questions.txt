@@ -1,0 +1,30 @@
+MongoDB.
+
+
+Do I need a tool for translating the queries !!! discutam data viitoare !!!, or for migrating the data? Or both?
+Data migration might not be that hard, I just have to translate the data to JSON and then create the Mongo collections and documents.
+
+
+What about relations? What if the SQL DB is normalized? Do I migrate the normalizations as well?
+
+
+Migrating tools:
+	Mongify: http://mongify.com/getting_started.html
+	MSSQL to MongoDB: https://mssql2mongo.codeplex.com/
+	Telerik DBMigrator: http://docs.telerik.com/teststudio/features/scheduling-test-runs/migrate-database
+
+2 sapt inainte de vacanta, miercuri 14.12.2016, ora 18:00, Analiza Tool-uri migrare, diferente, feature-uri.
+
+
+How to approach dynamic schema when migrating from SQL? How does having a dynamic schema help?
+
+
+How will I handle the relations? Do i use the embedded documents or the refferences to other documents?
+
+
+MongoDB Use Cases: https://docs.mongodb.com/ecosystem/use-cases/
+	Operational Intelligence - Data Analysis
+	Content Management Systems		
+	Product Data Management
+	Machine Generated Data			High Volume Data Feeds
+	Social Media / General Public

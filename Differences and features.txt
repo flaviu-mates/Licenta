@@ -1,0 +1,32 @@
+Telerik:
+	- A test framework which has a DB migrator intergrated. Only has support for DB's containing standardized testing schedules.
+
+MSSQL to MongoDB:
+	- Requires .NET framework 4.0. Only works on windows.
+	- Deletes Mongo data while importing.
+	- Supported only by MSSQL Server, and only from 2005 on.
+	- The primary keys are automatically tranlsated as _id's
+	- Maps tables to collections. You cand modify the names and specify how many documents should it migrate at one time, to improve performance.
+	- You cannot choose data type when converting. Converts numerics to strings.
+
+Mongify:
+	- Supports multiple DB's (MySQL, PostgreSQL, SQLite, Oracle, SQLServer, and DB2) and any version of Mongo. Do we need to translate multiple types of DB's or we'll focus on one alone?
+	- It's ran in the terminal, no GUI. This means easier integration in an application.
+	- The config for migrating is stored in a file. You can also specify the batch size to migrate, as in MSSQL to MongoDB.
+	- You can translate the schema instead of writing it by hand (mongify translation database.config).
+	- You can specify the data formats, and the name of the documents.
+	- "process" or "pr" takes a translation and process it to mongodb [configuration_file, translation_file]
+	- "sync" or "sy" takes a translation and process it to mongodb, only syncs (insert/update) new or updated records based on the updated_at column [configuration_file, translation_file]
+	- You can create the links by specifying the column, change the SQL table's name.
+	- You can ignore configuration tables, as well as any other table.
+	- You can allow polymorphic relationships.
+	- before_save - modify the data before it's migrated.
+	- By default, the columns with unspecified data type will be treated as strings.
+	- You can also ignore or rename columns from tables and change their data type.
+	- To contribute, just install 'bundler'.
+	- Mongify is tested with Ruby. We'll have to see if we have to implement a driver for another language, or if there are any other already implemented drivers.
+
+Will we only use a translator for a one-time translation of a DB, doing it from the terminal for example, or should we implement a functionality in the app so we can translate DB's as a feature of it?
+
+Build a GUI for Mongify adding new features/improvements. GUI structure, design, flow, functionalities. Miercuri 11.01.2017.
+Correctness of translation. Check if the translation is complete, has no duplicates, consistent

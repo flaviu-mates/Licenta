@@ -1,0 +1,46 @@
+[41] Feinleib, D. (2012), “Big Data and NoSQL: Five Key Insights”, Forbes online article
+retrieved from http://www.forbes.com/sites/davefeinleib/2012/10/08/big-data-and-nosqlfive-key-insights,
+May 2015.
+[3] Arora, I., Gupta, A. (2012) “Cloud Databases: A Paradigm Shift in Databases”, IJCSI
+International Journal of Computer Science Issues, Vol. 9, Issue 4, No 3, July 2012, http://www.chinacloud.cn/upload/2012-08/12081800318964.pdf
+[8] Han, J., Song, M., Song, J. (2011), "A Novel Solution of Distributed Memory NoSQL
+Database for Cloud Computing", 2011 10th IEEE/ACIS International Conference on
+Computer and Information Science, pp. 351-355 https://www.slideshare.net/jgabriellima/a-novel-solution-of-distributed-memory-no-sql-database-for-cloud-computing
+[5] Ganiee, N., Bhargava R., "NOSQL for Interactive Applications", International Journal of
+Allied Practice, Research and Review, Website: www.ijaprr.com (ISSN 2350-1294),
+retrieved on 2015. book
+[22] Codd, E. F. (1970), "A relational model of data for large shared data banks",
+Communications of the ACM, v.13 n.6, p.377-387, June 1970 http://users.dcc.uchile.cl/~cgutierr/cursos/BD/A_Relational_Model_of_Data_for_Large_Shared_Data_Banks.pdf
+[28] Date, C.J. (2003), "An Introduction to Database Systems“(8th Edition), United States of
+America, Pearson Education, Inc. book
+[30] Fagin R. (1977) , “Multivalued Dependencies and a New Normal Form for Relational
+Databases”, ACM Transactions on Database Systems (TODS), v.2 n.3, p.262-278, Sept.
+1977 https://www.comp.nus.edu.sg/~lingtw/papers/fagin.pdf
+[1] What is MySQL https://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html
+[14] Han, J,, Haihong, E., Le G., Du, J. (2011), "Survey on NoSQL Database", Pervasive
+Computing and Applications (ICPCA), 2011 6th International Conference, PP. 363 - 366.
+[17] Hecht, R., Jablonski, S. (2011), "NoSQL Evaluation A Use Case Oriented Survey", Cloud
+and Service Computing (CSC), 2011 International Conference on Cloud and Service
+Computing, pp. 336-341. https://pdfs.semanticscholar.org/b316/2e0faf4ed736da6b7c043d5a4b8549d10772.pdf 
+[15] Cattell, R. (2010), "Scalable SQL and NoSQL Data Stores", Newsletter - ACM SIGMOD
+Record archive Volume 39 Issue 4, December 2010 http://www.cattell.net/datastores/Datastores.pdf,
+[18] Vaish, G. (2013), "Getting Started with NoSQL", Retrieved through Google Books.
+[19] "Rules of Engagement – NoSQL Column Data Stores", http://www.ingenioussql.com/2013/02/
+[16] Moniruzzaman, A B M, Hossain, s. A. (2013), "NoSQL Database: New Era of Databases
+for Big data Analytics - Classification, Characteristics and Comparison", International
+Journal of Database Theory and Application Vol. 6, No. 4. 2013., http://www.sersc.org/journals/IJDTA/vol6_no4/1.pdf
+[21] Mughees, M. (2013), "Data Migration FROM Standard SQL TO NoSQL", https://ecommons.usask.ca/handle/10388/ETD-2013-11-1342
+[2] Patel, A. B., Birla M., Nair, U. (2012), “Addressing Big Data Problem Using Hadoop and
+Map Reduce”, Engineering (NUiCONE), 2012 Nirma University International Conference
+on Engineering, pp. 1-5.
+[35] Gilbert, S., Lynch, N. A. (2012), “Perspectives on the CAP Theorem”, IEEE Computer,
+vol. 45, no. 2, DOI: 10.1109/MC.2011.389, https://groups.csail.mit.edu/tds/papers/Gilbert/Brewer2.pdf
+[2] MongoDB Overview - https://www.tutorialspoint.com/mongodb/mongodb_overview.htm
+[3] Introduction to MongoDB - https://docs.mongodb.com/manual/introduction/
+[37] Tauro, C. J. M., Patil, B. R., Prashanth, K.R. (2013), "A Comparative Analysis of Different
+NoSQL Databases on Data Model, Query Model and Replication Model", In Proceedings
+of International Conference on ”Emerging Research in Computing, Information,
+Communication and Applications” ERCICA. Elsevier, 2013 - https://pdfs.semanticscholar.org/c080/1f287bf3d410632207add7aee79193c14b1b.pdf
+[38] "MySQL The World's Most Popular Open Source Database", ORACLE online article
+retrieved from http://www.oracle.com/us/products/mysql/overview/index.html, February
+2015.

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mongify</title>
+    <meta name="description" content="SQL to NoSQL convertor">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    
+
+</head>
+
+<body>
+
+    <header>
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Mongify</h1>
+                <h3>SQL to NoSQL converting done right</h3>
+            </div> 
+        </div> 
+    </header>
+
+        <div class="container">
+            <form action="">
+                <div class="row form-group has-success has-feedback">
+                    <div class="col-sm-6">
+                        <label for="element-2" class="control-label">Enter your SQL server address:</label>
+                        <input type="text" id="element-2" class="form-control">
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <label for="element-2" class="control-label">&nbsp;</label>
+                        <a href="" class="btn btn-success form-control">Check connection</a>
+                    </div>
+                </div>
+                
+                <div class="row form-group has-success has-feedback"> 
+                    <div class="col-sm-6">
+                        <label for="element-5" class="control-label">Enter your NoSQL server address:</label>
+                        <input type="text" id="element-5" class="form-control">
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <label for="element-2" class="control-label">&nbsp;</label>
+                        <a href="" class="btn btn-success form-control">Check connection</a>
+                    </div>
+                </div>
+                
+            </form>
+
+            <hr>
+
+            <div style="max-height: 600px; overflow: auto;">
+                <table class="table table-striped">
+                    <tr><b>Table Name</b></tr>
+                  <tr>
+                    <td class="col-md-1"><b>Is converted</b></td>
+                    <td class="col-md-3"><b>Field Name</b></td>
+                    <td class="col-md-3"><b>Type</b></td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Id</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Name</td>
+                    <td>String</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Age</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Proffession</td>
+                    <td>String</td>
+                  </tr>
+                </table>
+
+                <table class="table table-striped">
+                    <tr><b>Table Name</b></tr>
+                  <tr>
+                    <td class="col-md-1"><b>Is converted</b></td>
+                    <td class="col-md-3"><b>Field Name</b></td>
+                    <td class="col-md-3"><b>Type</b></td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Id</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Name</td>
+                    <td>String</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Age</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Proffession</td>
+                    <td>String</td>
+                  </tr>
+                </table>
+
+                <table class="table table-striped">
+                    <tr><b>Table Name</b></tr>
+                  <tr>
+                    <td class="col-md-1"><b>Is converted</b></td>
+                    <td class="col-md-3"><b>Field Name</b></td>
+                    <td class="col-md-3"><b>Type</b></td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Id</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Name</td>
+                    <td>String</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Age</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Proffession</td>
+                    <td>String</td>
+                  </tr>
+                </table>
+
+                <table class="table table-striped">
+                    <tr><b>Table Name</b></tr>
+                  <tr>
+                    <td class="col-md-1"><b>Is converted</b></td>
+                    <td class="col-md-3"><b>Field Name</b></td>
+                    <td class="col-md-3"><b>Type</b></td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Id</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Name</td>
+                    <td>String</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Age</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Proffession</td>
+                    <td>String</td>
+                  </tr>
+                </table>
+
+                <table class="table table-striped">
+                    <tr><b>Table Name</b></tr>
+                  <tr>
+                    <td class="col-md-1"><b>Is converted</b></td>
+                    <td class="col-md-3"><b>Field Name</b></td>
+                    <td class="col-md-3"><b>Type</b></td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Id</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Name</td>
+                    <td>String</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Age</td>
+                    <td>Int</td>
+                  </tr>
+                  <tr class="info">
+                    <td><input type="checkbox" value=""></td>
+                    <td>Proffession</td>
+                    <td>String</td>
+                  </tr>
+                </table>
+            </div>
+
+            <hr>
+
+            <div>
+                <a href="" class="btn btn-success btn-md pull-right">Convert!</a>
+            </div>
+
+        </div>
+
+
+    <footer>
+        <div class="container">
+            <hr>
+
+            <p>
+                <small><a href="https://github.com/flaviu-mates/Licenta">Track</a> GitHub repository</small></p>
+        </div> <!-- end container -->
+    </footer>
+        
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body> 
+</html>

@@ -1,0 +1,4 @@
+Constraints.
+Migration config file visible.
+Merging two or more tables into one mongo document.
+Nu in saptamana de vacanta.

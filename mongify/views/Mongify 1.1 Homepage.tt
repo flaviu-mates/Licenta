@@ -33,15 +33,15 @@
                     </div>
                     <div class="col-sm-6">
                         <label for="element-2" class="control-label">Adapter:</label>
-                        <input type="text" id="element-2" class="form-control" name="adapter_sql">
+                        <input type="text" id="element-2" class="form-control" name="adapter_sql" required="true">
                         <label for="element-2" class="control-label">Host:</label>
-                        <input type="text" id="element-2" class="form-control" name="host_sql">
+                        <input type="text" id="element-2" class="form-control" name="host_sql" required="true">
                         <label for="element-2" class="control-label">Username:</label>
-                        <input type="text" id="element-2" class="form-control" name="username_sql">
+                        <input type="text" id="element-2" class="form-control" name="username_sql" required="true">
                         <label for="element-2" class="control-label">Password:</label>
-                        <input type="text" id="element-2" class="form-control" name="password_sql">
+                        <input type="text" id="element-2" class="form-control" name="password_sql" required="true">
                         <label for="element-2" class="control-label">Database:</label>
-                        <input type="text" id="element-2" class="form-control" name="database_sql">
+                        <input type="text" id="element-2" class="form-control" name="database_sql" required="true">
                     </div>
                 </div>
                 
@@ -51,9 +51,9 @@
                     </div>
                     <div class="col-sm-6">
                         <label for="element-2" class="control-label">Host:</label>
-                        <input type="text" id="element-2" class="form-control" name="host_nosql">
+                        <input type="text" id="element-2" class="form-control" name="host_nosql" required="true">
                         <label for="element-2" class="control-label">Database:</label>
-                        <input type="text" id="element-2" class="form-control" name="database_nosql">
+                        <input type="text" id="element-2" class="form-control" name="database_nosql" required="true">
                     </div>
                 </div>
                 <div class="row form-group has-success has-feedback">
@@ -66,7 +66,7 @@
 
             <hr>
 
-            <div style="max-height: 600px; overflow: auto;">
+            <!-- <div style="max-height: 600px; overflow: auto;">
                 <table class="table table-striped">
                     <tr><b>Table Name</b></tr>
                   <tr>
@@ -211,13 +211,13 @@
                     <td>String</td>
                   </tr>
                 </table>
-            </div>
+            </div> -->
 
-            <hr>
+            <!-- <hr> -->
 
-            <div>
+            <!-- <div>
                 <a href="" class="btn btn-success btn-md pull-right">Convert!</a>
-            </div>
+            </div> -->
 
         </div>
 

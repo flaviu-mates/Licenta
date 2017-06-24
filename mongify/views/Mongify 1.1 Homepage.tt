@@ -66,6 +66,15 @@
 
             <hr>
 
+            <form action="logout" method="get">
+              <div class="row form-group has-success has-feedback">
+                    <div class="col-sm-2 form-group">
+                      <label for="element-2" class="control-label">&nbsp;</label>
+                      <button type="submit" class="btn btn-success form-control">Logout</a>
+                    </div>
+                </div>
+            </form>
+
             <!-- <div style="max-height: 600px; overflow: auto;">
                 <table class="table table-striped">
                     <tr><b>Table Name</b></tr>

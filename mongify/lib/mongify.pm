@@ -1,5 +1,6 @@
 package mongify;
 use Dancer2;
+use Dancer2::Plugin::Database;
 use Data::Dumper;
 use URI::Escape;
 
@@ -7,7 +8,59 @@ use mongify::Utils;
 
 our $VERSION = '0.1';
 
+hook 'before' => sub {
+        if (! session('user') && request->path_info !~ m{^/login}) {
+            redirect '/login';
+        }
+};
+
+get '/login' => sub {
+    # Display a login page; the original URL they requested is available as
+    # vars->{requested_path}, so could be put in a hidden field in the form
+    warn Dumper "IN Login";
+    if ( session('user') ) {
+        redirect '/';
+    }
+    template 'Mongify 1.0 Login.tt';
+};
+
+post '/login' => sub {
+    my $user = database->quick_select('Users', 
+            { username => params->{user}, password => params->{password} }
+    );
+    # warn Dumper params;
+    warn Dumper $user;
+    if (!$user) {
+        warning "Failed login for unrecognised user " . params->{user};
+        redirect '/login?failed=1';
+    } else {
+        if ( $user->{password} eq params->{password} )
+        {
+            debug "Password correct";
+            # Logged in successfully
+            session user => $user;
+            params->{user_id} = $user->{id};
+            # warn Dumper params;
+            redirect '/';
+        } else {
+            debug("Login failed - password incorrect for " . params->{user});
+            redirect '/login?failed=1';
+        }
+    }
+};
+
+get '/logout' => sub {
+    app->destroy_session;
+    debug('You are logged out.');
+    redirect '/login';
+};
+
 get '/' => sub {
+    warn Dumper session;
+    my $databases = database->quick_select('Databases', 
+            { user => session->{data}->{user}->{id} }
+    );
+    warn Dumper $databases;
     template 'Mongify 1.1 Homepage';
 };
 

@@ -39,8 +39,6 @@ post '/login' => sub {
             debug "Password correct";
             # Logged in successfully
             session user => $user;
-            params->{user_id} = $user->{id};
-            # warn Dumper params;
             redirect '/';
         } else {
             debug("Login failed - password incorrect for " . params->{user});
@@ -57,11 +55,20 @@ get '/logout' => sub {
 
 get '/' => sub {
     warn Dumper session;
-    my $databases = database->quick_select('Databases', 
+    my @databases = database->quick_select('Databases', 
             { user => session->{data}->{user}->{id} }
     );
-    warn Dumper $databases;
-    template 'Mongify 1.1 Homepage';
+    session databases => @databases;
+    warn Dumper @databases;
+    template 'Mongify 1.1 Homepage', { databases => \@databases };
+};
+
+post '/' => sub {
+    my $params = request->params;
+    warn Dumper $params;
+
+    database->quick_insert('Databases', { sql_adapter => $params->{adapter_sql}, sql_host => $params->{host_sql}, sql_username => $params->{username_sql}, sql_password => $params->{password_sql}, sql_database => $params->{database_sql}, mongo_host => $params->{host_nosql}, mongo_database => $params->{database_nosql}, user => session->{data}->{user}->{id} });
+    redirect '/';
 };
 
 post '/configfile' => sub {

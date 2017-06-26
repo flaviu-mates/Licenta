@@ -26,7 +26,7 @@
     </header>
 
         <div class="container">
-            <form action="configfile" method="post">
+            <form action="" method="post">
                 <div class="row form-group has-success has-feedback">
                     <div class="line-sm-6">
                       <label>Enter your SQL connection details:</label>
@@ -59,9 +59,56 @@
                 <div class="row form-group has-success has-feedback">
                     <div class="col-sm-2 form-group">
                       <label for="element-2" class="control-label">&nbsp;</label>
-                      <button type="submit" class="btn btn-success form-control">Generate config file</a>
+                      <button type="submit" class="btn btn-success form-control">Add Migration Config</a>
+                      <br>
+                      <button type="submit" class="btn btn-danger form-control">Delete Migration Config</a>
                     </div>
                 </div>
+            </form>
+
+            <hr>
+
+            <form action="configfile" method="post">
+              <div style="max-height: 600px; overflow: auto;">
+
+                  <table class="table table-striped">
+                    <tr><b>Databases</b></tr>
+                    <% FOREACH database in databases %>
+                      <tr>
+                        <td class="col-sm-1"><input type="radio" name="option_database" value=""></td>
+                        <td class="col-md-1"><b>SQL Database: <%database.sql_database%></b></td>
+                        <td class="col-md-1"><b>SQL Adapter: <%database.sql_adapter%></b></td>
+                        <td class="col-md-1"><b>SQL Host: <%database.sql_host%></b></td>
+                        <td class="col-md-1"><b>SQL Username: <%database.sql_username%></b></td>
+                        <td class="col-md-1"><b>SQL Password: <%database.sql_password%></b></td>
+                        <td class="col-md-1"><b>Mongo Host: <%database.mongo_host%></b></td>
+                        <td class="col-md-1"><b>Mongo Database: <%database.mongo_database%></b></td>
+                      </tr>
+                    <% END %>
+                  </table>
+                  <table class="table table-striped">
+                    <tr><b>Converted Databases</b></tr>
+                    <% FOREACH database in databases %>
+                      <tr>
+                        <td class="col-sm-1"><input type="radio" name="option_database" value=""></td>
+                        <td class="col-md-1"><b>SQL Database: <%database.sql_database%></b></td>
+                        <td class="col-md-1"><b>SQL Adapter: <%database.sql_adapter%></b></td>
+                        <td class="col-md-1"><b>SQL Host: <%database.sql_host%></b></td>
+                        <td class="col-md-1"><b>SQL Username: <%database.sql_username%></b></td>
+                        <td class="col-md-1"><b>SQL Password: <%database.sql_password%></b></td>
+                        <td class="col-md-1"><b>Mongo Host: <%database.mongo_host%></b></td>
+                        <td class="col-md-1"><b>Mongo Database: <%database.mongo_database%></b></td>
+                      </tr>
+                    <% END %>
+                  </table>    
+              </div>
+
+              <div class="row form-group has-success has-feedback">
+                <div class="col-sm-2 form-group">
+                  <label for="element-2" class="control-label">&nbsp;</label>
+                  <button type="submit" class="btn btn-success form-control">Generate config file</a>
+                </div>
+              </div>
             </form>
 
             <hr>
@@ -74,153 +121,6 @@
                     </div>
                 </div>
             </form>
-
-            <!-- <div style="max-height: 600px; overflow: auto;">
-                <table class="table table-striped">
-                    <tr><b>Table Name</b></tr>
-                  <tr>
-                    <td class="col-md-1"><b>Is converted</b></td>
-                    <td class="col-md-3"><b>Field Name</b></td>
-                    <td class="col-md-3"><b>Type</b></td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Id</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Name</td>
-                    <td>String</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Age</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Proffession</td>
-                    <td>String</td>
-                  </tr>
-                </table>
-
-                <table class="table table-striped">
-                    <tr><b>Table Name</b></tr>
-                  <tr>
-                    <td class="col-md-1"><b>Is converted</b></td>
-                    <td class="col-md-3"><b>Field Name</b></td>
-                    <td class="col-md-3"><b>Type</b></td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Id</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Name</td>
-                    <td>String</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Age</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Proffession</td>
-                    <td>String</td>
-                  </tr>
-                </table>
-
-                <table class="table table-striped">
-                    <tr><b>Table Name</b></tr>
-                  <tr>
-                    <td class="col-md-1"><b>Is converted</b></td>
-                    <td class="col-md-3"><b>Field Name</b></td>
-                    <td class="col-md-3"><b>Type</b></td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Id</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Name</td>
-                    <td>String</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Age</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Proffession</td>
-                    <td>String</td>
-                  </tr>
-                </table>
-
-                <table class="table table-striped">
-                    <tr><b>Table Name</b></tr>
-                  <tr>
-                    <td class="col-md-1"><b>Is converted</b></td>
-                    <td class="col-md-3"><b>Field Name</b></td>
-                    <td class="col-md-3"><b>Type</b></td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Id</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Name</td>
-                    <td>String</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Age</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Proffession</td>
-                    <td>String</td>
-                  </tr>
-                </table>
-
-                <table class="table table-striped">
-                    <tr><b>Table Name</b></tr>
-                  <tr>
-                    <td class="col-md-1"><b>Is converted</b></td>
-                    <td class="col-md-3"><b>Field Name</b></td>
-                    <td class="col-md-3"><b>Type</b></td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Id</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Name</td>
-                    <td>String</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Age</td>
-                    <td>Int</td>
-                  </tr>
-                  <tr class="info">
-                    <td><input type="checkbox" value=""></td>
-                    <td>Proffession</td>
-                    <td>String</td>
-                  </tr>
-                </table>
-            </div> -->
 
             <!-- <hr> -->
 

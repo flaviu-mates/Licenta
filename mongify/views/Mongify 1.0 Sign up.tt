@@ -27,25 +27,23 @@
 
         <div class="container">
 
-            <%IF output && exit_code%>
-               <p><%output%></p>
-            <%ELSE%>
-                <p>You're all DONE!</p>
-            <%END%>
-
-            <hr>
-            <form action="logout" method="get">
-              <div class="row form-group has-success has-feedback">
-                    <div class="col-sm-2 form-group">
-                      <label for="element-2" class="control-label">&nbsp;</label>
-                      <button type="submit" class="btn btn-success form-control">Logout</a>
-                    </div>
+            <form action="/signup" method="post" class="form-inline">
+                <div class="form-group">
+                    <label for="element-3" class="sr-only">This is the text of the label</label>
+                    <input type="text" name="user" id="element-3" class="form-control input-lg" placeholder="Enter username" required="true">
                 </div>
+                <div class="form-group">
+                    <label for="element-4" class="sr-only">This is the text of the label 2</label>
+                    <input type="password" name="password" id="element-4" class="form-control input-lg" placeholder="Enter Password" required="true">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up!</button>
+                <%IF failed%>
+                    <p class="bg-danger">User already exists</p>
+                <%END%>
+
             </form>
-            <a href="/" class="btn btn-primary">Home</a>
+
         </div>
-
-
 
 
     <footer>

@@ -9,8 +9,27 @@ use mongify::Utils;
 
 our $VERSION = '0.1';
 
+get '/signup' => sub {
+    template 'Mongify 1.0 Sign up.tt', { failed => params->{failed} };
+};
+
+post '/signup' => sub {
+    my $user = database->quick_select('Users', 
+            { username => params->{user} }
+    );
+    if (!$user) {
+        database->quick_insert('Users', 
+            { username => params->{user}, password => params->{password} }
+        );
+        redirect '/login';
+    }
+    else {
+        redirect '/signup?failed=1';
+    }
+};
+
 hook 'before' => sub {
-        if (! session('user') && request->path_info !~ m{^/login}) {
+        if (! session('user') && request->path_info !~ m{^/login} && request->path_info !~ m{^/signup} ) {
             redirect '/login';
         }
 };
@@ -79,7 +98,7 @@ post '/' => sub {
 post '/configfile' => sub {
     warn '#################';
     my $params = request->params;
-    warn Dumper $params->{delete},"PARAMSSSSSSSSSSSs*&^Y";
+    warn Dumper $params,"PARAMSSSSSSSSSSSs*&^Y";
 
 
     if ( $params->{delete} eq '1' && $params->{ database_id } ) {
@@ -138,7 +157,7 @@ post '/translation' => sub {
 
     warn Dumper $config_filename, $translation_filename, "FILES@!#%";
 
-    my $output = qx("mongify process $config_filename $translation_filename");
+    my $output = qx("mongify process $config_filename $translation_filename 2>&1");
     my $exit_code = $? >> 8;
 
     warn Dumper $output, $exit_code, "OUTPUT#@*&^";
@@ -146,12 +165,9 @@ post '/translation' => sub {
     if ( $exit_code == 0 && session->{data}->{normal_database} ) {
         database->quick_insert('Databases_history', { sql_adapter => session->{data}->{conversion_database}->{sql_adapter}, sql_host => session->{data}->{conversion_database}->{sql_host}, sql_username => session->{data}->{conversion_database}->{sql_username}, sql_password => session->{data}->{conversion_database}->{sql_password}, sql_database => session->{data}->{conversion_database}->{sql_database}, mongo_host => session->{data}->{conversion_database}->{mongo_host}, mongo_database => session->{data}->{conversion_database}->{mongo_database}, user => session->{data}->{user}->{id} });
         database->quick_delete('Databases', { id => session->{data}->{conversion_database}->{id} });
-        template 'Mongify 1.0 Done';
     }
-    else {
-        template 'Mongify 1.0 Done', { output => $output };
-    }
-
+     
+    template 'Mongify 1.0 Done', { output => $output, exit_code => $exit_code };
 };
 
 true;

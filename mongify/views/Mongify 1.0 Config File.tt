@@ -37,6 +37,19 @@
                 </div>
             </form>
 
+            <hr>
+
+            <form action="logout" method="get">
+              <div class="row form-group has-success has-feedback">
+                    <div class="col-sm-2 form-group">
+                      <label for="element-2" class="control-label">&nbsp;</label>
+                      <button type="submit" class="btn btn-success form-control">Logout</a>
+                    </div>
+                </div>
+            </form>
+            <a href="/" class="btn btn-primary">Home </a>
+
+
         </div>
 
 

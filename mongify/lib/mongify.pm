@@ -3,6 +3,7 @@ use Dancer2;
 use Dancer2::Plugin::Database;
 use Data::Dumper;
 use URI::Escape;
+use IPC::Run3;
 
 use mongify::Utils;
 
@@ -58,9 +59,13 @@ get '/' => sub {
     my @databases = database->quick_select('Databases', 
             { user => session->{data}->{user}->{id} }
     );
-    session databases => @databases;
+
+    my @history_databases = database->quick_select('Databases_history', 
+            { user => session->{data}->{user}->{id} }
+    );
+    session databases => \@databases, databases_history => \@history_databases;
     warn Dumper @databases;
-    template 'Mongify 1.1 Homepage', { databases => \@databases };
+    template 'Mongify 1.1 Homepage', { databases => \@databases, history_databases => \@history_databases };
 };
 
 post '/' => sub {
@@ -74,11 +79,51 @@ post '/' => sub {
 post '/configfile' => sub {
     warn '#################';
     my $params = request->params;
-    warn Dumper $params;
+    warn Dumper $params->{delete},"PARAMSSSSSSSSSSSs*&^Y";
 
-    my $utils = mongify::Utils->new( { params => $params } );
 
-    my $config_file = $utils->generate_config_file( $params );
+    if ( $params->{delete} eq '1' && $params->{ database_id } ) {
+        warn 'NORMALLLLLLLLLLLLLLLLLLLLLLL';
+        database->quick_delete('Databases', { id => $params->{ database_id } });
+        redirect '/';
+    }
+    elsif ( $params->{delete} eq '1' && $params->{ history_id } ){
+        warn 'HISTORYYYYYYYYYYYYYYYYYYY';
+        database->quick_delete('Databases_history', { id => $params->{ history_id } });
+        redirect '/';
+    }
+
+    my $database;
+
+    if ( $params->{ database_id } ){
+        $database = database->quick_select('Databases', { user => session->{data}->{user}->{id}, id => $params->{ database_id } } );
+        session normal_database => 1;
+    }
+    elsif ( $params->{ history_id } ){
+        $database = database->quick_select('Databases_history', { user => session->{data}->{user}->{id}, id => $params->{ history_id } } );
+        session history_database => 1;
+    }
+
+    warn Dumper $database;
+    session conversion_database => $database;
+    warn Dumper session;
+
+    my $utils = mongify::Utils->new( { database => $database , user_id => session->{data}->{user}->{id} } );
+
+    my $config_file = $utils->generate_config_file( $database );
+    my $filename = $utils->write_config_file();
+    warn Dumper $filename;
+
+    my $output = qx("mongify check $filename");
+
+    warn Dumper $output;
+
+    my $translation_filename = "database_translation_".session->{data}->{user}->{id}.".rb";
+    $output = qx("mongify translation $filename > $translation_filename");
+
+    session config_filename => $filename;
+    session translation_filename => $translation_filename;
+
     warn Dumper $config_file;
 
     template 'Mongify 1.0 Config File', { config_file => $config_file };
@@ -86,17 +131,27 @@ post '/configfile' => sub {
 
 post '/translation' => sub {
     my $params = request->params;
-    my $config_file = uri_unescape( $params->{ config_file } );
-    warn Dumper $config_file;
-    $config_file =~ /sql_connection.*host\s\"(.*)\"\n\t.*end.*/s;
-    my $host = $1;
-    $config_file =~ /sql_connection.*username\s\"(\w*|\d*)\".*end.*/s;
-    my $username = $1;
-    $config_file =~ /sql_connection.*password\s\"(\w+)\".*end.*/s;
-    my $password = $1;
-    $config_file =~ /sql_connection.*database\s\"(\w+)\".*end.*/s;
-    my $database = $1;
-    warn Dumper $host, $username, $password, $database;
+    warn Dumper $params;
+    
+    my $config_filename = session->{data}->{config_filename};
+    my $translation_filename = session->{data}->{translation_filename};
+
+    warn Dumper $config_filename, $translation_filename, "FILES@!#%";
+
+    my $output = qx("mongify process $config_filename $translation_filename");
+    my $exit_code = $? >> 8;
+
+    warn Dumper $output, $exit_code, "OUTPUT#@*&^";
+
+    if ( $exit_code == 0 && session->{data}->{normal_database} ) {
+        database->quick_insert('Databases_history', { sql_adapter => session->{data}->{conversion_database}->{sql_adapter}, sql_host => session->{data}->{conversion_database}->{sql_host}, sql_username => session->{data}->{conversion_database}->{sql_username}, sql_password => session->{data}->{conversion_database}->{sql_password}, sql_database => session->{data}->{conversion_database}->{sql_database}, mongo_host => session->{data}->{conversion_database}->{mongo_host}, mongo_database => session->{data}->{conversion_database}->{mongo_database}, user => session->{data}->{user}->{id} });
+        database->quick_delete('Databases', { id => session->{data}->{conversion_database}->{id} });
+        template 'Mongify 1.0 Done';
+    }
+    else {
+        template 'Mongify 1.0 Done', { output => $output };
+    }
+
 };
 
 true;

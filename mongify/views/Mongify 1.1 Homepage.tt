@@ -60,8 +60,7 @@
                     <div class="col-sm-2 form-group">
                       <label for="element-2" class="control-label">&nbsp;</label>
                       <button type="submit" class="btn btn-success form-control">Add Migration Config</a>
-                      <br>
-                      <button type="submit" class="btn btn-danger form-control">Delete Migration Config</a>
+                      
                     </div>
                 </div>
             </form>
@@ -75,7 +74,8 @@
                     <tr><b>Databases</b></tr>
                     <% FOREACH database in databases %>
                       <tr>
-                        <td class="col-sm-1"><input type="radio" name="option_database" value=""></td>
+                        <td class="col-sm-1"><input type="radio" name="database_id" value="<%database.id%>"></td>
+                        <td class="col-md-1" style="display:none"><b><%database.id%></b></td>
                         <td class="col-md-1"><b>SQL Database: <%database.sql_database%></b></td>
                         <td class="col-md-1"><b>SQL Adapter: <%database.sql_adapter%></b></td>
                         <td class="col-md-1"><b>SQL Host: <%database.sql_host%></b></td>
@@ -88,9 +88,10 @@
                   </table>
                   <table class="table table-striped">
                     <tr><b>Converted Databases</b></tr>
-                    <% FOREACH database in databases %>
+                    <% FOREACH database in history_databases %>
                       <tr>
-                        <td class="col-sm-1"><input type="radio" name="option_database" value=""></td>
+                        <td class="col-sm-1"><input type="radio" name="history_id" value="<%database.id%>"></td>
+                        <td class="col-md-1" style="display:none"><b><%database.id%></b></td>
                         <td class="col-md-1"><b>SQL Database: <%database.sql_database%></b></td>
                         <td class="col-md-1"><b>SQL Adapter: <%database.sql_adapter%></b></td>
                         <td class="col-md-1"><b>SQL Host: <%database.sql_host%></b></td>
@@ -107,6 +108,8 @@
                 <div class="col-sm-2 form-group">
                   <label for="element-2" class="control-label">&nbsp;</label>
                   <button type="submit" class="btn btn-success form-control">Generate config file</a>
+                  <br>
+                  <button type="submit" class="btn btn-danger form-control" name="delete" value="1">Delete Migration Config</a>
                 </div>
               </div>
             </form>
